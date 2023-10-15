@@ -1,0 +1,204 @@
+{
+    "auxiliary_fan": "0",
+    "bed_custom_model": "",
+    "bed_custom_texture": "",
+    "bed_exclude_area": [
+        "0x0"
+    ],
+    "before_layer_change_gcode": ";BEFORE_LAYER_CHANGE\n;[layer_z]\nG92 E0\n",
+    "change_filament_gcode": "",
+    "cooling_tube_length": "5",
+    "cooling_tube_retraction": "91.5",
+    "default_filament_profile": [
+        "My Generic ABS"
+    ],
+    "default_print_profile": "0.20mm Standard @MyKlipper",
+    "deretraction_speed": [
+        "80"
+    ],
+    "enable_filament_ramming": "1",
+    "extra_loading_move": "-2",
+    "extruder_clearance_height_to_lid": "140",
+    "extruder_clearance_height_to_rod": "36",
+    "extruder_clearance_radius": "65",
+    "extruder_colour": [
+        "#FCE94F"
+    ],
+    "extruder_offset": [
+        "0x0"
+    ],
+    "fan_kickstart": "0",
+    "fan_speedup_overhangs": "1",
+    "fan_speedup_time": "0",
+    "from": "",
+    "gcode_flavor": "klipper",
+    "high_current_on_filament_swap": "0",
+    "host_type": "octoprint",
+    "inherits": "MyKlipper 0.4 nozzle",
+    "layer_change_gcode": ";AFTER_LAYER_CHANGE\n;[layer_z]",
+    "machine_end_gcode": "G1 E-0.5 F1000 ; retract\nG92 E0.0\nG1{if max_layer_z < max_print_height} Z{z_offset+min(max_layer_z+70, max_print_height)}{endif} E-3.0 F720 ; move print head up & retract filament\nG4 ; wait\nM104 S0 ; turn off temperature\nM140 S0 ; turn off heatbed\nM107 ; turn off fan\nG1 X150 Y150 F3000 ; park print head\nM84 ; disable motors",
+    "machine_load_filament_time": "0",
+    "machine_max_acceleration_e": [
+        "5000",
+        "5000"
+    ],
+    "machine_max_acceleration_extruding": [
+        "20000",
+        "20000"
+    ],
+    "machine_max_acceleration_retracting": [
+        "5000",
+        "5000"
+    ],
+    "machine_max_acceleration_travel": [
+        "9000",
+        "9000"
+    ],
+    "machine_max_acceleration_x": [
+        "20000",
+        "20000"
+    ],
+    "machine_max_acceleration_y": [
+        "20000",
+        "20000"
+    ],
+    "machine_max_acceleration_z": [
+        "500",
+        "200"
+    ],
+    "machine_max_jerk_e": [
+        "2.5",
+        "2.5"
+    ],
+    "machine_max_jerk_x": [
+        "9",
+        "9"
+    ],
+    "machine_max_jerk_y": [
+        "9",
+        "9"
+    ],
+    "machine_max_jerk_z": [
+        "0.2",
+        "0.4"
+    ],
+    "machine_max_speed_e": [
+        "25",
+        "25"
+    ],
+    "machine_max_speed_x": [
+        "500",
+        "200"
+    ],
+    "machine_max_speed_y": [
+        "500",
+        "200"
+    ],
+    "machine_max_speed_z": [
+        "12",
+        "12"
+    ],
+    "machine_min_extruding_rate": [
+        "0",
+        "0"
+    ],
+    "machine_min_travel_rate": [
+        "0",
+        "0"
+    ],
+    "machine_pause_gcode": "PAUSE",
+    "machine_start_gcode": "\nG28 ; 全部归零\nG92 E0 ; 挤出机归零\nG1 Z1.0 F3000 ; 稍微升高Z\nM190 S[first_layer_bed_temperature]  ; 热床\nM109 S[first_layer_temperature]  ; 热嘴\nZ_TILT_ADJUST ;z偏移校准\nCLEAN_NOZZLE ; 擦嘴\nCALIBRATE_Z ; z校准\nBED_MESH_PROFILE LOAD='default' ;加载网床\n\nG1 X10 Y20 Z0.3 F5000.0 ; move to start-line position\nG1 X10 Y130.0 Z0.2 F1500.0 E10 ; draw 1st line\nG1 X10 Y130.0 Z0.3 F5000.0 ; move to side a little\nG1 X10 Y20 Z0.3 F1500.0 E20 ; draw 2nd line\n \nG92 E0 ; reset extruder\nG1 Z1.0 F3000 ; move z up little to prevent scratching of surface",
+    "machine_unload_filament_time": "0",
+    "max_layer_height": [
+        "0.32"
+    ],
+    "min_layer_height": [
+        "0.08"
+    ],
+    "name": "TT310",
+    "nozzle_diameter": [
+        "0.4"
+    ],
+    "nozzle_hrc": "0",
+    "nozzle_type": "undefine",
+    "nozzle_volume": "0",
+    "parking_pos_retraction": "92",
+    "print_host": "192.168.2.130",
+    "print_host_webui": "",
+    "printable_area": [
+        "0x0",
+        "300x0",
+        "300x300",
+        "0x300"
+    ],
+    "printable_height": "300",
+    "printer_model": "Generic Klipper Printer",
+    "printer_notes": "",
+    "printer_settings_id": "TT310",
+    "printer_technology": "FFF",
+    "printer_variant": "0.4",
+    "printhost_apikey": "",
+    "printhost_authorization_type": "key",
+    "printhost_cafile": "",
+    "printhost_password": "",
+    "printhost_port": "",
+    "printhost_ssl_ignore_revoke": "0",
+    "printhost_user": "",
+    "purge_in_prime_tower": "1",
+    "retract_before_wipe": [
+        "70%"
+    ],
+    "retract_length_toolchange": [
+        "2"
+    ],
+    "retract_lift_above": [
+        "0"
+    ],
+    "retract_lift_below": [
+        "0"
+    ],
+    "retract_lift_enforce": [
+        "All Surfaces"
+    ],
+    "retract_restart_extra": [
+        "0"
+    ],
+    "retract_restart_extra_toolchange": [
+        "0"
+    ],
+    "retract_when_changing_layer": [
+        "1"
+    ],
+    "retraction_length": [
+        "1"
+    ],
+    "retraction_minimum_travel": [
+        "1"
+    ],
+    "retraction_speed": [
+        "80"
+    ],
+    "scan_first_layer": "0",
+    "silent_mode": "0",
+    "single_extruder_multi_material": "1",
+    "template_custom_gcode": "",
+    "thumbnails": [
+        "300x300"
+    ],
+    "upward_compatible_machine": [],
+    "use_firmware_retraction": "0",
+    "use_relative_e_distances": "1",
+    "version": "1.5.1.2",
+    "wipe": [
+        "1"
+    ],
+    "wipe_distance": [
+        "1"
+    ],
+    "z_hop": [
+        "0"
+    ],
+    "z_hop_types": [
+        "Normal Lift"
+    ]
+}
